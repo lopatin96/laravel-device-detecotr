@@ -7,7 +7,6 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use hisorange\BrowserDetect\Facade as Browser;
 
-
 class DeviceDetectorProvider extends ServiceProvider
 {
     public function register()
@@ -21,8 +20,6 @@ class DeviceDetectorProvider extends ServiceProvider
             $event->user->forceFill([
                 'device' => Browser::deviceType(),
             ])->save();
-
-
         });
 
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
